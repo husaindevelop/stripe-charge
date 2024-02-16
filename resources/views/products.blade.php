@@ -1,3 +1,10 @@
+<?php 
+use App\Models\Products;
+use App\Models\User;
+
+use Illuminate\Database\Eloquent\Collection;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,9 +27,10 @@ margin:0px;
     
     <body>
     <?php
+    
+      
     $us = Auth::id();
-    $users = DB::connection('mysql')->table('users')->where('id',$us)->first();
-    $products = DB::connection('mysql')->table('products')->get();
+    $users = User::where('id',$us)->first();
     ?>
     <div class="container-fluid" style="width:100%;">
 
@@ -39,8 +47,8 @@ margin:0px;
       <div class="container-fluid" style="width:70%;">
       <div class="row">
         <?php 
-        foreach ($products as $product) {
-          
+        foreach (Products::all() as $product) {
+      
          
         ?>
       <div class="col-lg-4">

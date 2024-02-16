@@ -1,3 +1,7 @@
+<?php
+use App\Models\Products;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,6 +23,10 @@ margin:0px;
     
     
     <body>
+      <?php 
+      $users = Products::where('id',$product)->first();
+    
+      ?>
     <div class="container-fluid" style="width:100%;">
 
 <div class="navbar navbar-dark bg-dark box-shadow" style="width:100%;margin-bottom:20px;">
@@ -34,7 +42,6 @@ margin:0px;
 
     <?php
 
-    $users = DB::connection('mysql')->table('products')->where('id',$product)->first();
     
     
     ?>
